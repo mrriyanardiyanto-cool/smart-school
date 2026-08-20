@@ -19,6 +19,17 @@ header{height:76px;border-bottom:1px solid #94a3b81c;background:#ffffffeb;backdr
 .open{width:100%;height:42px;border:0;border-radius:11px;color:#fff;font-weight:900;font-size:10px;cursor:pointer}.jurnal .open{background:var(--blue)}.absen .open{background:var(--green)}.kelas .open{background:var(--purple)}
 .info{text-align:center;padding:17px;margin-bottom:30px;border:1px solid var(--line);border-radius:15px;background:#ffffffb3;color:var(--muted);font-size:10px;line-height:1.6}footer{text-align:center;color:#94a3b8;font-size:9px;padding-bottom:25px}
 @media(max-width:850px){.apps{grid-template-columns:1fr}.hero h2{font-size:30px}.card{min-height:250px}}@media(max-width:520px){.wrap{width:calc(100% - 24px)}.hero{padding-top:45px}.hero h2{font-size:26px}.brand p{display:none}}
+  @media(max-width:520px){
+  .brand > div:last-child{
+    min-width:0;
+  }
+
+  .brand > div:last-child .sub{
+    display:block !important;
+    white-space:nowrap;
+    font-size:10px;
+  }
+}
 </style>
 </head>
 <body>
