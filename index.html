@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SMART SCHOOL 77</title>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0f766e">
 <style>
 :root{--bg:#f5f8fb;--ink:#172033;--muted:#718096;--line:#e5eaf0;--blue:#0284c7;--green:#059669;--purple:#7c3aed;--teal:#0f766e}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:radial-gradient(700px 350px at 0 0,#14b8a614,transparent 65%),radial-gradient(700px 350px at 100% 0,#0284c714,transparent 65%),var(--bg);min-height:100vh}
@@ -40,6 +42,13 @@ JURNAL_KELAS:{name:'Jurnal Kelas',url:'https://script.google.com/macros/s/AKfycb
 function isConfigured(url){const u=String(url||'').trim();return /^https?:\/\//i.test(u)&&!u.includes('ISI_URL_')&&!u.includes('IP-SERVER-SMARTABSENSI')}
 function openApp(key){const app=APPS[key];if(!app)return;if(!isConfigured(app.url)){alert('URL '+app.name+' belum diatur di index.html.');return}window.open(app.url,'_blank','noopener')}
 
+</script>
+  <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js');
+  });
+}
 </script>
 </body>
 </html>
