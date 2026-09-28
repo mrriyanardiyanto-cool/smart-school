@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smart-school-v2';
+const CACHE_NAME = 'smart-school-v3';
 
 const APP_SHELL = [
   './',
@@ -36,13 +36,14 @@ self.addEventListener('fetch', event => {
 
   const url = new URL(event.request.url);
 
-  // Untuk halaman utama, selalu coba ambil versi terbaru dari internet
+  // HALAMAN UTAMA:
+  // selalu ambil versi terbaru dari server
   if (
     event.request.mode === 'navigate' ||
     url.pathname.endsWith('/index.html')
   ) {
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, { cache: 'no-store' })
         .then(response => {
           const copy = response.clone();
 
@@ -58,7 +59,8 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // File lain: cache dulu, lalu internet sebagai cadangan
+  // FILE LAIN:
+  // cache dulu, internet sebagai cadangan
   event.respondWith(
     caches.match(event.request)
       .then(cached => cached || fetch(event.request))
